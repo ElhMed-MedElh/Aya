@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A letter</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+<!-- ============================================================
+     1 · GATE
+     Shown before anything else. Skipped entirely if CONFIG.password
+     is an empty string.
+     ============================================================ -->
+<div class="gate" id="gate">
+  <form class="gate__card" id="gate-form" novalidate>
+    <p class="eyebrow">sealed &middot; par avion</p>
+    <h1 class="gate__title">This one is only for you.</h1>
+    <p class="gate__hint" id="gate-hint"></p>
+
+    <label class="gate__label" for="gate-input">Your answer</label>
+    <input
+      class="gate__input"
+      id="gate-input"
+      type="text"
+      name="answer"
+      autocomplete="off"
+      autocapitalize="none"
+      autocorrect="off"
+      spellcheck="false"
+      aria-describedby="gate-hint gate-error">
+
+    <button class="gate__button" type="submit">Open the letter</button>
+
+    <p class="gate__error" id="gate-error" role="status" aria-live="polite"></p>
+  </form>
+
+  <noscript>
+    <p class="gate__noscript">This letter needs JavaScript switched on to open.</p>
+  </noscript>
+</div>
+
+
+<main class="site" id="site" hidden>
+
+  <!-- ============================================================
+       2 · HERO
+       Airmail chevron border — used here and in the closing section
+       only, so it stays special.
+       ============================================================ -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="airmail">
+      <div class="hero__inner">
+
+        <p class="eyebrow hero__route">
+          par avion &middot; <span data-config="cityFrom"></span> &rarr; <span data-config="cityTo"></span>
+        </p>
+
+        <h1 class="hero-title" id="hero-title" tabindex="-1">
+          A letter for <em data-config="herName"></em>
+        </h1>
+
+        <p class="hero__copy">
+          This is the long way of saying I miss you &mdash; written down,
+          folded, stamped, and sent to the girl i love the most in this life.
+        </p>
+
+        <ul class="stamps">
+          <li class="stamp" style="--tilt: -2.2deg">
+            <span class="stamp__number" data-count="since">0</span>
+            <span class="stamp__label">days since we first met</span>
+          </li>
+          <li class="stamp" style="--tilt: 1.6deg">
+            <span class="stamp__number" data-count="secret">0</span>
+            <span class="stamp__label">days until something I&rsquo;m not telling you about yet</span>
+          </li>
+        </ul>
+
+        <p class="hand hero__joke" data-config="jokeLine"></p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       3 · POLAROIDS
+       Eight, and only eight. Each starts face up; clicking turns it
+       over to the handwritten back. Edit the captions right here.
+       The --tilt on each one is what makes them sit unevenly.
+       ============================================================ -->
+  <section class="section reveal" id="polaroids" aria-labelledby="polaroids-title">
+    <div class="section__inner">
+
+      <p class="eyebrow"> turn them over</p>
+      <h2 class="section-title" id="polaroids-title">Eight I keep coming back to.</h2>
+
+      <ul class="polaroids" role="list">
+
+        <li>
+          <button class="polaroid" type="button" aria-pressed="false" style="--tilt: -2.4deg">
+            <span class="polaroid__inner">
+              <span class="polaroid__face polaroid__front">
+                <span class="polaroid__shot"><img src="images/photo-1.jpg" alt="" loading="lazy"></span>
+              </span>
+              <span class="polaroid__face polaroid__back">
+                <span class="polaroid__caption">i was stressed, and extremely happy. this is the day i was born .</span>
+              </span>
+            </span>
+          </button>
+        </li>
+
+        <li>
+          <button class="polaroid" type="button" aria-pressed="false" style="--tilt: 1.8deg">
+            <span class="polaroid__inner">
+              <span class="polaroid__face polaroid__front">
+                <span class="polaroid__shot"><img src="images/photo-2.jpg" alt="" loading="lazy"></span>
+              </span>
+              <span class="polaroid__face polaroid__back">
+                <span class="polaroid__caption">20min before we got completely lost hahaha.</span>
+              </span>
+            </span>
+          </button>
+        </li>
+
+        <li>
+          <button class="polaroid" type="button" aria-pressed="false" style="--tilt: -1.1deg">
+            <span class="polaroid__inner">
+              <span class="polaroid__face polaroid__front">
+                <span class="polaroid__shot"><img src="images/photo-3.jpg" alt="" loading="lazy"></span>
+              </span>
+              <span class="polaroid__face polaroid__back">
+                <span class="polaroid__caption">I still don&rsquo;t know if we crossed paths when we were young. i'm glad we did now.</span>
+              </span>
+            </span>
+          </button>
+        </li>
+
+        <li>
+          <button class="polaroid" type="button" aria-pressed="false" style="--tilt: 2.6deg">
+            <span class="polaroid__inner">
+              <span class="polaroid__face polaroid__front">
+                <span class="polaroid__shot"><img src="images/photo-4.jpg" alt="" loading="lazy"></span>
+              </span>
+              <span class="polaroid__face polaroid__back">
+                <span class="polaroid__caption">The only way i get high, and i wish it never ends.</span>
+              </span>
+            </span>
+          </button>
+        </li>
+
+        <li>
+          <button class="polaroid" type="button" aria-pressed="false" style="--tilt: -1.9deg">
+            <span class="polaroid__inner">
+              <span class="polaroid__face polaroid__front">
+                <span class="polaroid__shot"><img src="images/photo-5.jpg" alt="" loading="lazy"></span>
+              </span>
+              <span class="polaroid__face polaroid__back">
+                <span class="polaroid__caption">felt like holding a baby in my hands. it was actually</span>
+              </span>
+            </span>
+          </button>
+        </li>
+
+        <li>
+          <button class="polaroid" type="button" aria-pressed="false" style="--tilt: 1.3deg">
+            <span class="polaroid__inner">
+              <span class="polaroid__face polaroid__front">
+                <span class="polaroid__shot"><img src="images/photo-6.jpg" alt="" loading="lazy"></span>
+              </span>
+              <span class="polaroid__face polaroid__back">
+                <span class="polaroid__caption">tried matcha with you and felt straight wakha hakak.</span>
+              </span>
+            </span>
+          </button>
+        </li>
+
+        <li>
+          <button class="polaroid" type="button" aria-pressed="false" style="--tilt: -2.8deg">
+            <span class="polaroid__inner">
+              <span class="polaroid__face polaroid__front">
+                <span class="polaroid__shot"><img src="images/photo-7.jpg" alt="" loading="lazy"></span>
+              </span>
+              <span class="polaroid__face polaroid__back">
+                <span class="polaroid__caption">Everything ran late that day and none of it mattered.</span>
+              </span>
+            </span>
+          </button>
+        </li>
+
+        <li>
+          <button class="polaroid" type="button" aria-pressed="false" style="--tilt: 2.1deg">
+            <span class="polaroid__inner">
+              <span class="polaroid__face polaroid__front">
+                <span class="polaroid__shot"><img src="images/photo-8.jpg" alt="" loading="lazy"></span>
+              </span>
+              <span class="polaroid__face polaroid__back">
+                <span class="polaroid__caption">it's always gonna be cute, beuatiful and gorgeous, not shrek's donkey.</span>
+              </span>
+            </span>
+          </button>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       4 · THE SHOEBOX
+       Thumbnails are built from CONFIG.shoebox in script.js —
+       add more there and they appear here.
+       ============================================================ -->
+  <section class="section reveal" id="shoebox" aria-labelledby="shoebox-title">
+    <div class="section__inner">
+
+      <p class="eyebrow">the shoebox</p>
+      <h2 class="section-title" id="shoebox-title">And others that are special, in no order at all.</h2>
+
+      <ul class="shoebox" id="shoebox-grid" role="list"></ul>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       5 · VIDEOS
+       Nothing loads until she presses play — preload="none" plus a
+       poster image. Files: videos/video-1.mp4 with video-1.jpg.
+       ============================================================ -->
+  <section class="section reveal" id="videos" aria-labelledby="videos-title">
+    <div class="section__inner">
+
+      <p class="eyebrow">filmed memories</p>
+      <h2 class="section-title" id="videos-title">we move.</h2>
+
+      <ul class="videos" role="list">
+
+        <li class="video">
+          <div class="video__frame">
+            <video src="videos/video-1.mp4" preload="none" poster="videos/video-1.jpg" controls playsinline></video>
+            <button class="video__play" type="button" aria-label="Play the first video">
+              <span class="video__icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="video__caption">never wanted a drive to end when i'm with you</p>
+        </li>
+
+        <li class="video">
+          <div class="video__frame">
+            <video src="videos/video-2.mp4" preload="none" poster="videos/video-2.jpg" controls playsinline></video>
+            <button class="video__play" type="button" aria-label="Play the second video">
+              <span class="video__icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="video__caption">you challenged me and i made the flower</p>
+        </li>
+
+        <li class="video">
+          <div class="video__frame">
+            <video src="videos/video-3.mp4" preload="none" poster="videos/video-3.jpg" controls playsinline></video>
+            <button class="video__play" type="button" aria-label="Play the third video">
+              <span class="video__icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="video__caption">the sunset jealous of the most beautiful creature in the universe</p>
+        </li>
+
+        <li class="video">
+          <div class="video__frame">
+            <video src="videos/video-4.mp4" preload="none" poster="videos/video-4.jpg" controls playsinline></video>
+            <button class="video__play" type="button" aria-label="Play the fourth video">
+              <span class="video__icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="video__caption">and the latest one we took, i had to tell you that i'm tired to say goodnight and work on the website (i am indeed so tired rn)</p>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       6 · THE PHONE
+       Messages come from CONFIG.chat in script.js.
+       ============================================================ -->
+  <section class="section reveal" id="messages" aria-labelledby="messages-title">
+    <div class="section__inner">
+
+      <p class="eyebrow">kept &middot; from an old thread</p>
+      <h2 class="section-title" id="messages-title">Some of it I never deleted.</h2>
+
+      <div class="phone">
+        <span class="phone__speaker" aria-hidden="true"></span>
+        <div class="phone__screen" id="chat-log" role="log" aria-live="polite" aria-label="Old messages"></div>
+        <button class="phone__button" id="chat-next" type="button">Read the first message</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       7 · OPEN WHEN…
+       The letter text lives right here in the HTML, on purpose.
+       Edit the paragraphs inside .letter__inner directly.
+       ============================================================ -->
+  <section class="section reveal" id="open-when" aria-labelledby="open-when-title">
+    <div class="section__inner">
+
+      <p class="eyebrow">sealed &middot; one at a time</p>
+      <h2 class="section-title" id="open-when-title">Open when&hellip;</h2>
+
+      <ul class="letters" role="list">
+
+        <li class="letter">
+          <h3 class="letter__heading">
+            <button class="letter__head" type="button" aria-expanded="false" aria-controls="letter-1">
+              <span class="letter__seal" aria-hidden="true"></span>
+              <span class="letter__label">Open when you can&rsquo;t sleep</span>
+            </button>
+          </h3>
+          <div class="letter__body" id="letter-1" hidden>
+            <div class="letter__inner">
+              <p>
+                It&rsquo;s late where you are and later where I am, and neither of us
+                is doing anything useful about it. So read this instead of
+                draining your mind ahbiba.
+              </p>
+              <p>
+                Nothing has to be decided tonight. The list you are running
+                through will still be there in the morning, and it will be
+                shorter than it feels right now.
+              </p>
+              <p>
+                I am somewhere on the other side of this, awake or not,
+                thinking about you either way. Sleep. I&rsquo;ll still be here and i loveeee you so much.
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li class="letter">
+          <h3 class="letter__heading">
+            <button class="letter__head" type="button" aria-expanded="false" aria-controls="letter-2">
+              <span class="letter__seal" aria-hidden="true"></span>
+              <span class="letter__label">Open when you miss me</span>
+            </button>
+          </h3>
+          <div class="letter__body" id="letter-2" hidden>
+            <div class="letter__inner">
+              <p>
+                Good. That was the plan.
+              </p>
+              <p>
+                I miss you in the small ways more than the big ones &mdash; the
+                things I want to tell you before I&rsquo;ve finished thinking them,
+                the jokes that only work on you, the silence that isn&rsquo;t
+                awkward.
+              </p>
+              <p>
+                Missing someone is just proof the distance hasn&rsquo;t won.
+                It hasn&rsquo;t. It&rsquo;s only geography, and geography is temporary (lmochkila hiya wakha nkon maak antohcheek)
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li class="letter">
+          <h3 class="letter__heading">
+            <button class="letter__head" type="button" aria-expanded="false" aria-controls="letter-3">
+              <span class="letter__seal" aria-hidden="true"></span>
+              <span class="letter__label">Open when you&rsquo;ve had a bad day</span>
+            </button>
+          </h3>
+          <div class="letter__body" id="letter-3" hidden>
+            <div class="letter__inner">
+              <p>
+                You don&rsquo;t have to explain it, or be fair about it, or find the
+                lesson in it. Some days are just badly made.
+              </p>
+              <p>
+                Eat something. Drink some water. Tell me the whole thing later
+                and leave nothing out, including the part where you were right
+                and nobody noticed.
+              </p>
+              <p>
+                Tomorrow gets to be different. That&rsquo;s the only rule tomorrow has.
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li class="letter">
+          <h3 class="letter__heading">
+            <button class="letter__head" type="button" aria-expanded="false" aria-controls="letter-4">
+              <span class="letter__seal" aria-hidden="true"></span>
+              <span class="letter__label">Open when you&rsquo;re proud of something</span>
+            </button>
+          </h3>
+          <div class="letter__body" id="letter-4" hidden>
+            <div class="letter__inner">
+              <p>
+                Tell me. All of it, in order, with the boring parts left in.
+                I want the version where you explain why it was hard.
+              </p>
+              <p>
+                I have watched you talk yourself out of taking credit more
+                times than I can count. Not this time. You did the work, and
+                the work was yours.
+              </p>
+              <p>
+                I&rsquo;m proud my love <3.
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li class="letter">
+          <h3 class="letter__heading">
+            <button class="letter__head" type="button" aria-expanded="false" aria-controls="letter-5">
+              <span class="letter__seal" aria-hidden="true"></span>
+              <span class="letter__label">Open when it feels too far</span>
+            </button>
+          </h3>
+          <div class="letter__body" id="letter-5" hidden>
+            <div class="letter__inner">
+              <p>
+                Some days the distance wins. The number of days we haven't seen each other in is
+                large and it does not care how we feel about it.
+              </p>
+              <p>
+                But the distance is the only thing standing there. Not doubt,
+                not a change of heart, not a quiet drifting-off. Just distance,
+                and distance is the easiest problem we will ever have.
+              </p>
+              <p>
+                We are not waiting to see whether this works. We&rsquo;re waiting
+                for a date. There is a difference, and the difference is
+                everything.
+              </p>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       8 · SONGS
+       The list comes from CONFIG.songs in script.js.
+       ============================================================ -->
+  <section class="section reveal" id="songs" aria-labelledby="songs-title">
+    <div class="section__inner">
+
+      <p class="eyebrow">side a &middot; on repeat</p>
+      <h2 class="section-title" id="songs-title">Songs that have been keeping me company.</h2>
+
+      <ol class="songs" id="songs-list" role="list"></ol>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       9 · CLOSING
+       Airmail border again — the second and last time it appears.
+       Letter text and signature are edited here, not in the config.
+       ============================================================ -->
+  <section class="section closing reveal" id="closing" aria-labelledby="closing-title">
+    <div class="section__inner">
+      <div class="airmail">
+
+        <p class="eyebrow">
+          par avion &middot; <span data-config="cityFrom"></span> &rarr; <span data-config="cityTo"></span>
+        </p>
+
+        <h2 class="visually-hidden" id="closing-title">One last thing</h2>
+
+        <div class="closing__letter">
+          <p>
+            I built this instead of sending another message that just said
+            <em>I miss you</em>, because you already know that part, and because
+            you deserve the long version at least once.
+          </p>
+          <p>
+            Everything above is true and slightly understated. I&rsquo;d rather
+            hand you all of it in person, but the hours never line up and
+            the money never quite stretches, so this is what I could make
+            in the meantime.
+            KANBGHIIK <3
+          </p>
+        </div>
+
+        <!-- sign this with your own name -->
+        <p class="hand closing__signature">&mdash; yours, and impatient about it</p>
+
+        <p class="countdown">
+          <span class="countdown__number" data-count="secret">0</span>
+          <span class="countdown__label">days until something I&rsquo;m not telling you about yet</span>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       10 · FOOTER
+       ============================================================ -->
+  <footer class="footer">
+
+    <button class="do-not-press" id="do-not-press" type="button">do not press</button>
+
+    <div class="terms">
+      <button class="terms__toggle" id="terms-toggle" type="button" aria-expanded="false" aria-controls="terms-list">
+        terms and conditions
+      </button>
+      <ol class="terms__list" id="terms-list" hidden>
+        <li>This letter is non-transferable. It was written for one reader, and the licence does not extend to your friends, however nice they are.</li>
+        <li>Any claim that you miss me more is subject to review and, on the evidence available, will be rejected.</li>
+        <li>The countdown may be revised at any time without notice, usually by me, usually at 2am, usually in the wrong direction.</li>
+        <li>Photographs were selected by a committee of one. The committee is not accepting appeals.</li>
+        <li>By scrolling this far you agree to be seen again in person at the earliest possible opportunity.</li>
+      </ol>
+    </div>
+
+  </footer>
+
+</main>
+
+
+<!-- ============================================================
+     Lightbox for the shoebox. Lives outside <main> so it sits
+     over everything. Opened from script.js.
+     ============================================================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo" hidden>
+  <div class="lightbox__stage" id="lightbox-stage">
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" id="lightbox-img" src="" alt="">
+      <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+  <button class="lightbox__control lightbox__prev" id="lightbox-prev" type="button" aria-label="Previous photo">
+    <span aria-hidden="true">&lsaquo;</span>
+  </button>
+  <button class="lightbox__control lightbox__next" id="lightbox-next" type="button" aria-label="Next photo">
+    <span aria-hidden="true">&rsaquo;</span>
+  </button>
+  <button class="lightbox__control lightbox__close" id="lightbox-close" type="button" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
